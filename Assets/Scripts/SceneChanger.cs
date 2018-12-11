@@ -9,8 +9,9 @@ public class SceneChanger : MonoBehaviour {
         if (other.CompareTag("Player"))
         {
             Debug.Log("Win");
-            SceneManager.LoadScene("Win");
+            //SceneManager.LoadScene("Win");
             // SceneManager.LoadScene("Win", LoadSceneMode.Single); // alternative
+            SceneManager.LoadScene("Scene2");
         }
     }
 }
