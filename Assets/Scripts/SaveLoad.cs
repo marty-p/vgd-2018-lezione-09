@@ -21,12 +21,40 @@ public class SaveLoad : MonoBehaviour
         bf.Serialize(file, data);
         file.Close();
 	}
+
+    public void Load()
+    {
+        string destination = Application.persistentDataPath + "/Save.dat";
+        FileStream file;
+        if (File.Exists(destination))
+        {
+            file = File.OpenRead(destination);
+        }
+        else
+        {
+            Debug.Log("SaveFile not found");
+            return;
+        }
+
+        BinaryFormatter bf = new BinaryFormatter();
+        GameData data = (GameData) bf.Deserialize(file);
+        file.Close();
+
+        playerTransform.position = data.GetPosition();
+    }
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Y))
         {
             Save();
             Debug.Log("Save done");
+        }
+
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            Load();
+            Debug.Log("Load done");
         }
     }
 }
