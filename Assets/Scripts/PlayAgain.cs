@@ -7,6 +7,6 @@ public class PlayAgain : MonoBehaviour {
 
 	// Use this for initialization
 	public void LoadMainScene () {
-        SceneManager.LoadScene("SampleScene"); // 0
+        SceneManager.LoadScene("MainScene"); // 0
 	}
 }
